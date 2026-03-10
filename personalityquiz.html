@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Personality Insight Portal</title>
+
+<style>
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, rgb(166, 166, 152) );
+        color: #333;
+        line-height: 1.6;
+    }
+
+/* LOGIN PAGE */
+
+#loginPage{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.login-box{
+background:rgb(194, 164, 164);
+padding:40px;
+border-radius:10px;
+width:300px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.login-box input{
+width:90%;
+padding:10px;
+margin:10px 0;
+border-radius:5px;
+border:1px solid #bcb0b0;
+}
+
+.login-box button{
+padding:10px 20px;
+border:none;
+background:#6d7bb9;
+color: rgb(182, 157, 157);
+border-radius:5px;
+cursor:pointer;
+}
+
+.login-box button:hover{
+background:#5a67d8;
+}
+
+/* MAIN PAGE */
+
+#mainPage{
+display:none;
+}
+
+    header {
+        background: linear-gradient(to right,rgb(175, 136, 136));
+        color: black;
+        padding: 40px;
+        text-align: center;
+    }
+
+section{
+padding:30px 70px;
+}
+
+h2{
+color:#76494b;
+}
+
+.types,.benefits{
+display:flex;
+gap:20px;
+margin-top:20px;
+}
+
+.card{
+background:rgb(175, 136, 136);
+padding:20px;
+border-radius:10px;
+width:30%;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Button */
+
+.test-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#6d7bb9;
+color: rgb(182, 157, 157);
+border:none;
+padding:15px 20px;
+border-radius:30px;
+cursor:pointer;
+}
+
+/* QUIZ */
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+height:100%;
+width:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.quiz-box{
+background:beige;
+padding:25px;
+width:360px;
+border-radius:10px;
+text-align:center;
+}
+
+
+  .options button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: none;
+        background: #7da7a7;
+        color: black;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+.options button:hover{
+background:#5a67d8;
+}
+
+.hidden{
+display:none;
+}
+.finish-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #6d7bb9;   /* same theme color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.finish-btn:hover {
+    background: #5a67d8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+
+<div id="loginPage">
+
+<div class="login-box">
+
+<h2>Login</h2>
+
+<input type="text" id="name" placeholder="Enter Name" required>
+
+<input type="email" id="email" placeholder="Enter Email" required>
+
+<input type="tel" id="phone" placeholder="Enter Phone Number" required>
+
+<br><br>
+
+<button onclick="login()">Enter</button>
+
+</div>
+
+</div>
+
+
+<!-- MAIN PAGE -->
+
+<div id="mainPage">
+
+<header>
+    <h1>🧠 Personality Insight Portal</h1>
+    <p>Understand yourself better through personality analysis</p>
+</header>
+
+<section>
+    <h2>What is Personality?</h2>
+    <p>
+        Personality is a combination of characteristics, behaviors, emotions,
+        and thought patterns that make each individual unique. It influences how
+        people react to situations, communicate with others, and make decisions
+        in daily life.
+    </p>
+
+    <h2>Why Understanding Personality is Important</h2>
+    <p>
+        Understanding personality helps individuals improve self-awareness,
+        build better relationships, choose suitable careers, and work effectively
+        in teams. It also helps in stress management and decision-making.
+    </p>
+
+    <h2>Major Personality Types</h2>
+    <div class="types">
+        <div class="card">
+            <h3>🧩 Thinker</h3>
+            <p>
+                Thinkers are logical, analytical, and calm. They prefer planning,
+                reasoning, and understanding situations deeply before acting.
+            </p>
+            <p><b>Strengths:</b> Problem-solving, planning, focus</p>
+        </div>
+
+        <div class="card">
+            <h3>🗣 Social</h3>
+            <p>
+                Social personalities are friendly, expressive, and energetic.
+                They enjoy communication, teamwork, and social interactions.
+            </p>
+            <p><b>Strengths:</b> Communication, leadership, teamwork</p>
+        </div>
+
+        <div class="card">
+            <h3>🌍 Adventurer</h3>
+            <p>
+                Adventurers are bold, curious, and open to new experiences.
+                They enjoy challenges, risks, and exploring the unknown.
+            </p>
+            <p><b>Strengths:</b> Creativity, adaptability, confidence</p>
+        </div>
+    </div>
+
+    <h2>How Personality Affects Daily Life</h2>
+    <div class="benefits">
+        <div class="card">
+            <h3>🎓 Education</h3>
+            <p>
+                Personality influences learning style, concentration, and
+                problem-solving approach.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>💼 Career</h3>
+            <p>
+                Choosing a career aligned with personality increases job
+                satisfaction and performance.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🤝 Relationships</h3>
+            <p>
+                Understanding personality improves communication and emotional
+                connections with others.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Floating Button -->
+<button class="test-btn" onclick="openQuiz()">Take Personality Test</button>
+
+<!-- Quiz Modal -->
+<div class="modal" id="quizModal">
+    <div class="quiz-box">
+
+        <div id="quiz">
+            <h2 id="question"></h2>
+            <div class="options">
+                <button onclick="selectOption(0)"></button>
+                <button onclick="selectOption(1)"></button>
+                <button onclick="selectOption(2)"></button>
+            </div>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Your Personality Is</h2>
+            <h3 id="personality"></h3>
+            <p id="description"></p>
+            <button class="finish-btn" onclick="restartQuiz()">Finish</button>
+        </div>
+
+    </div>
+</div>
+
+
+</section>
+
+<button class="test-btn" onclick="openQuiz()">Take Personality Test</button>
+
+
+<!-- QUIZ -->
+
+<div class="modal" id="quizModal">
+
+<div class="quiz-box">
+
+<div id="quiz">
+<h2 id="question"></h2>
+
+<div class="options">
+<button onclick="selectOption(0)"></button>
+<button onclick="selectOption(1)"></button>
+<button onclick="selectOption(2)"></button>
+</div>
+
+</div>
+
+<div id="result" class="hidden">
+
+<h2>Your Personality Is</h2>
+
+<h3 id="personality"></h3>
+
+<p id="description"></p>
+
+<button class="finish-btn" onclick="restartQuiz()">Finish</button>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+/* LOGIN */
+
+function login(){
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let phone=document.getElementById("phone").value;
+
+if(name==""||email==""||phone==""){
+alert("Please fill all details");
+return;
+}
+
+document.getElementById("loginPage").style.display="none";
+document.getElementById("mainPage").style.display="block";
+
+}
+
+
+/* QUIZ DATA */
+
+const questions = [
+        {
+            question: "How do you prefer spending free time?",
+            options: ["Thinking quietly", "With friends", "Exploring new places"],
+            type: ["thinker", "social", "adventurer"]
+        },
+        {
+            question: "In a team, you usually:",
+            options: ["Plan carefully", "Motivate others", "Take bold decisions"],
+            type: ["thinker", "social", "adventurer"]
+        },
+        {
+            question: "Your friends describe you as:",
+            options: ["Wise", "Friendly", "Fearless"],
+            type: ["thinker", "social", "adventurer"]
+        },
+        {
+            question: "When faced with a problem:",
+            options: ["Analyze deeply", "Discuss with others", "Try something new"],
+            type: ["thinker", "social", "adventurer"]
+        },
+        {
+            question: "You enjoy places that are:",
+            options: ["Quiet", "Lively", "Adventurous"],
+            type: ["thinker", "social", "adventurer"]
+        }
+    ];
+
+let score={thinker:0,social:0,adventurer:0};
+let current=0;
+
+
+/* QUIZ FUNCTIONS */
+
+function openQuiz(){
+
+document.getElementById("quizModal").style.display="flex";
+loadQuestion();
+
+}
+
+function loadQuestion(){
+
+document.getElementById("question").textContent=questions[current].question;
+
+let buttons=document.querySelectorAll(".options button");
+
+for(let i=0;i<3;i++){
+buttons[i].textContent=questions[current].options[i];
+}
+
+}
+
+function selectOption(index){
+
+let type=questions[current].type[index];
+
+score[type]++;
+
+current++;
+
+if(current<questions.length){
+loadQuestion();
+}
+
+else{
+showResult();
+}
+
+}
+
+function showResult(){
+
+document.getElementById("quiz").classList.add("hidden");
+document.getElementById("result").classList.remove("hidden");
+
+let finalType=Object.keys(score).reduce((a,b)=>score[a]>score[b]?a:b);
+
+const descriptions={
+thinker:"You are calm and logical.",
+social:"You are friendly and expressive.",
+adventurer:"You are bold and curious."
+};
+
+document.getElementById("personality").textContent=finalType.toUpperCase();
+
+document.getElementById("description").textContent=descriptions[finalType];
+
+}
+
+function restartQuiz(){
+
+document.getElementById("quizModal").style.display="none";
+
+document.getElementById("quiz").classList.remove("hidden");
+
+document.getElementById("result").classList.add("hidden");
+
+current=0;
+
+score={thinker:0,social:0,adventurer:0};
+
+}
+
+</script>
+
+</body>
+</html>
